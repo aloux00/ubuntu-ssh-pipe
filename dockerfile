@@ -34,10 +34,13 @@ RUN sudo rm -R libsodium/
 ##./pipesocks pipe <-H Remote Host> [-P Remote Port] [-p Local Port]
 ##./pipesocks tap <-H Remote Host> [-P Remote Port] [-p Local Port] [-k Password]
 ##
+
+ADD pipe.conf /etc/supervisor/conf.d/pipe.conf
+
 ENV SUPERNODE_PORT 8989
 EXPOSE 9001
 EXPOSE 8989
 EXPOSE 22
 EXPOSE 8000
 
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/n2nssd.conf"]
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/pipe.conf"]
