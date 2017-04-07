@@ -36,7 +36,9 @@ EXPOSE $localport
 ##./pipesocks pipe <-H Remote Host> [-P Remote Port] [-p Local Port]
 ##./pipesocks tap <-H Remote Host> [-P Remote Port] [-p Local Port] [-k Password]
 ##
-
+ADD supernode /usr/bin/supernode
+ADD edge /usr/bin/edge
+RUN chmod 777 /usr/bin/supernode && chmod 777 /usr/bin/edge
 ADD pipe.conf /etc/supervisor/conf.d/pipe.conf
 
 ENV SUPERNODE_PORT 16565
